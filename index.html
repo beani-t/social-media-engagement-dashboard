@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engagement Rate Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero-card">
+      <p class="eyebrow">Social Media Analytics Tool</p>
+      <h1>Engagement Rate <span>Calculator</span></h1>
+      <p class="subtitle">Measure post performance across major social platforms and get instant marketing recommendations.</p>
+    </section>
+
+    <section class="calculator-card">
+      <div class="section-header">
+        <p>Step 1</p>
+        <h2>Select Platform</h2>
+      </div>
+
+      <div class="platform-grid" id="platformGrid">
+        <button class="platform active" data-platform="Instagram">Instagram</button>
+        <button class="platform" data-platform="TikTok">TikTok</button>
+        <button class="platform" data-platform="X / Twitter">X / Twitter</button>
+        <button class="platform" data-platform="Facebook">Facebook</button>
+        <button class="platform" data-platform="LinkedIn">LinkedIn</button>
+        <button class="platform" data-platform="YouTube">YouTube</button>
+      </div>
+    </section>
+
+    <section class="calculator-card">
+      <div class="section-header">
+        <p>Step 2</p>
+        <h2>Enter Post Metrics</h2>
+      </div>
+
+      <form id="calculatorForm" class="metrics-grid">
+        <label>
+          Followers
+          <input type="number" id="followers" placeholder="e.g. 1000" min="1" required />
+        </label>
+        <label>
+          Likes
+          <input type="number" id="likes" placeholder="e.g. 250" min="0" required />
+        </label>
+        <label>
+          Comments
+          <input type="number" id="comments" placeholder="e.g. 35" min="0" required />
+        </label>
+        <label>
+          Shares
+          <input type="number" id="shares" placeholder="e.g. 20" min="0" required />
+        </label>
+        <label>
+          Saves
+          <input type="number" id="saves" placeholder="e.g. 45" min="0" required />
+        </label>
+      </form>
+
+      <div class="button-row">
+        <button class="primary-button" type="submit" form="calculatorForm">Calculate</button>
+        <button class="secondary-button" type="button" id="resetButton">Reset</button>
+      </div>
+    </section>
+
+    <section class="results-card" aria-live="polite">
+      <div class="section-header">
+        <p>Step 3</p>
+        <h2>Results</h2>
+      </div>
+
+      <div id="results" class="results-content">
+        <p class="placeholder">Enter your metrics to see your engagement rate.</p>
+      </div>
+    </section>
+
+    <footer>
+      Built by Abeni Townsend • Marketing Analytics Portfolio Project
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
