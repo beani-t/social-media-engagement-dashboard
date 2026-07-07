@@ -3,81 +3,113 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Engagement Rate Calculator</title>
+  <title>Social Media Engagement Dashboard</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="page-shell">
-    <section class="hero-card">
-      <p class="eyebrow">Social Media Analytics Tool</p>
-      <h1>Engagement Rate <span>Calculator</span></h1>
-      <p class="subtitle">Measure post performance across major social platforms and get instant marketing recommendations.</p>
+  <main class="app">
+    <section class="hero">
+      <p class="eyebrow">Marketing Analytics Tool</p>
+      <h1>Social Media Engagement Dashboard</h1>
+      <p class="subtitle">Calculate engagement rate, compare performance to platform benchmarks, and get content recommendations instantly.</p>
     </section>
 
-    <section class="calculator-card">
-      <div class="section-header">
-        <p>Step 1</p>
-        <h2>Select Platform</h2>
+    <section class="dashboard">
+      <div class="card platform-card">
+        <div class="card-header">
+          <h2>Select Platform</h2>
+          <button id="themeToggle" class="theme-btn" type="button">Dark Mode</button>
+        </div>
+
+        <div class="platform-grid" id="platformGrid">
+          <button class="platform active" data-platform="Instagram">📸 Instagram</button>
+          <button class="platform" data-platform="TikTok">🎵 TikTok</button>
+          <button class="platform" data-platform="X / Twitter">𝕏 X / Twitter</button>
+          <button class="platform" data-platform="Facebook">📘 Facebook</button>
+          <button class="platform" data-platform="LinkedIn">💼 LinkedIn</button>
+          <button class="platform" data-platform="YouTube">▶️ YouTube</button>
+        </div>
       </div>
 
-      <div class="platform-grid" id="platformGrid">
-        <button class="platform active" data-platform="Instagram">Instagram</button>
-        <button class="platform" data-platform="TikTok">TikTok</button>
-        <button class="platform" data-platform="X / Twitter">X / Twitter</button>
-        <button class="platform" data-platform="Facebook">Facebook</button>
-        <button class="platform" data-platform="LinkedIn">LinkedIn</button>
-        <button class="platform" data-platform="YouTube">YouTube</button>
-      </div>
-    </section>
+      <div class="card input-card">
+        <h2>Post Metrics</h2>
+        <div class="input-grid">
+          <label>Followers
+            <input id="followers" type="number" placeholder="10000" min="0" />
+          </label>
+          <label>Likes
+            <input id="likes" type="number" placeholder="16000" min="0" />
+          </label>
+          <label>Comments
+            <input id="comments" type="number" placeholder="170" min="0" />
+          </label>
+          <label>Shares
+            <input id="shares" type="number" placeholder="430" min="0" />
+          </label>
+          <label>Saves
+            <input id="saves" type="number" placeholder="280" min="0" />
+          </label>
+        </div>
 
-    <section class="calculator-card">
-      <div class="section-header">
-        <p>Step 2</p>
-        <h2>Enter Post Metrics</h2>
-      </div>
-
-      <form id="calculatorForm" class="metrics-grid">
-        <label>
-          Followers
-          <input type="number" id="followers" placeholder="e.g. 1000" min="1" required />
-        </label>
-        <label>
-          Likes
-          <input type="number" id="likes" placeholder="e.g. 250" min="0" required />
-        </label>
-        <label>
-          Comments
-          <input type="number" id="comments" placeholder="e.g. 35" min="0" required />
-        </label>
-        <label>
-          Shares
-          <input type="number" id="shares" placeholder="e.g. 20" min="0" required />
-        </label>
-        <label>
-          Saves
-          <input type="number" id="saves" placeholder="e.g. 45" min="0" required />
-        </label>
-      </form>
-
-      <div class="button-row">
-        <button class="primary-button" type="submit" form="calculatorForm">Calculate</button>
-        <button class="secondary-button" type="button" id="resetButton">Reset</button>
-      </div>
-    </section>
-
-    <section class="results-card" aria-live="polite">
-      <div class="section-header">
-        <p>Step 3</p>
-        <h2>Results</h2>
+        <div class="actions">
+          <button id="calculateBtn" class="primary">Calculate</button>
+          <button id="resetBtn" class="secondary">Reset</button>
+        </div>
       </div>
 
-      <div id="results" class="results-content">
-        <p class="placeholder">Enter your metrics to see your engagement rate.</p>
+      <div class="card results-card">
+        <div class="card-header">
+          <h2>Results</h2>
+          <span id="selectedPlatform" class="badge">Instagram</span>
+        </div>
+
+        <div class="result-hero">
+          <div>
+            <p class="result-label">Engagement Rate</p>
+            <h3 id="rate">0.00%</h3>
+          </div>
+          <div class="score-ring">
+            <span id="score">0</span>
+            <small>/100</small>
+          </div>
+        </div>
+
+        <div class="progress-wrap">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat">
+            <span>Total Engagement</span>
+            <strong id="total">0</strong>
+          </div>
+          <div class="stat">
+            <span>Benchmark</span>
+            <strong id="benchmark">3.0%</strong>
+          </div>
+          <div class="stat">
+            <span>Performance</span>
+            <strong id="performance">Waiting</strong>
+          </div>
+        </div>
+
+        <div class="recommendations">
+          <h3>Marketing Recommendations</h3>
+          <ul id="tips">
+            <li>Enter your post metrics to generate recommendations.</li>
+          </ul>
+        </div>
+
+        <div class="actions">
+          <button id="copyBtn" class="secondary">Copy Results</button>
+          <button id="downloadBtn" class="secondary">Download Report</button>
+        </div>
       </div>
     </section>
 
     <footer>
-      Built by Abeni Townsend • Marketing Analytics Portfolio Project
+      <p>Designed & Developed by <strong>Abeni Townsend</strong></p>
+      <p>Marketing Analytics • Product Strategy • Consumer Insights</p>
     </footer>
   </main>
 
